@@ -324,7 +324,7 @@ class LoginManager(object):
             header_name = config.get('AUTH_HEADER_NAME', AUTH_HEADER_NAME)
             has_cookie = (cookie_name in request.cookies and
                           session.get('remember') != 'clear')
-            if not config.get('flaskLogin_disableCookie') and has_cookie:
+            if not config.get('FLASK_LOGIN_DISABLE_COOKIE_LOGIN') and has_cookie:
                 cookie = request.cookies[cookie_name]
                 user = self._load_user_from_remember_cookie(cookie)
             elif self._request_callback:
